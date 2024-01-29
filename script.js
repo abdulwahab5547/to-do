@@ -1,0 +1,96 @@
+let todoInput = document.getElementById('todo-input-bar');
+let addButton = document.getElementById('add-item-button');
+let todoResult = document.getElementById('todo-result');
+let i = 1;
+
+
+
+// Make add button work using enter key
+todoInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        if (todoInput.value.trim() !== '') {
+            addButton.click();
+        }
+    }
+});
+
+addButton.addEventListener('click', function () {
+    let inputValue = todoInput.value.trim();
+    if (inputValue !== '') {
+        todoOutput();
+    }
+});
+
+
+
+
+
+function todoOutput(){
+
+
+   let inputValue = todoInput.value;
+   let item = document.createElement('li');
+  
+
+
+   item.innerHTML = '<i class="fa-solid fa-arrow-right"></i>' + ' ' + inputValue;
+   i++;
+
+
+   // Remove Button
+
+
+   let removeButton = document.createElement('button');
+   removeButton.textContent = 'Remove';
+   removeButton.addEventListener('click', function () {
+       // Remove the entire <li> element when the remove button is clicked
+       todoResult.removeChild(item);
+   });
+
+
+   // Create the check button
+   let checkButton = document.createElement('button');
+   checkButton.textContent = 'Check';
+   checkButton.addEventListener('click', function () {
+       // Toggle a class to visually indicate that the item is checked
+       item.classList.toggle('checked');
+
+
+       // Add or remove strikethrough effect based on the presence of the 'checked' class
+       if (item.classList.contains('checked')) {
+           item.style.textDecoration = 'line-through';
+       } else {
+           item.style.textDecoration = 'none';
+       }
+   });
+
+   
+
+
+   // Adding CSS classes
+   removeButton.classList.add('remove-button');
+   checkButton.classList.add('check-button');
+  
+   // Adding icons
+   removeButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+   checkButton.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+
+   // Moving to right
+   removeButton.style.float = 'right';
+   checkButton.style.float = 'right';
+
+
+   // Append the buttons to the <li> element
+   item.appendChild(removeButton);
+   item.appendChild(checkButton);
+
+
+
+
+   todoResult.appendChild(item);
+  
+
+
+   todoInput.value = '';
+}
