@@ -6,8 +6,8 @@ body{
  
 .footer{
    background-color: #030E24;
-   display: grid;
-   align-items: end;
+   margin: 0;
+
 }
 
 .footer p{
@@ -18,7 +18,7 @@ body{
    width: 90%;
    max-width: 1300px;
    margin: auto;
-   height: 94vh;
+   min-height: 95vh;
  }
  
 
@@ -26,7 +26,7 @@ body{
  
    
  /* To Do List */
- 
+
  
  #show-todo{
     max-width: 400px;
