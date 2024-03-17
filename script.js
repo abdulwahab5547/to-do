@@ -4,7 +4,6 @@ let todoResult = document.getElementById('todo-result');
 let i = 1;
 
 
-
 // Make add button work using enter key
 todoInput.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
@@ -14,6 +13,7 @@ todoInput.addEventListener('keydown', function(event) {
     }
 });
 
+// Make add button work with a click
 addButton.addEventListener('click', function () {
     let inputValue = todoInput.value.trim();
     if (inputValue !== '') {
@@ -22,24 +22,15 @@ addButton.addEventListener('click', function () {
 });
 
 
-
-
-
 function todoOutput(){
-
 
    let inputValue = todoInput.value;
    let item = document.createElement('li');
   
-
-
    item.innerHTML = '<i class="fa-solid fa-arrow-right"></i>' + ' ' + inputValue;
    i++;
 
-
-   // Remove Button
-
-
+   // Create the remove button
    let removeButton = document.createElement('button');
    removeButton.textContent = 'Remove';
    removeButton.addEventListener('click', function () {
@@ -94,3 +85,41 @@ function todoOutput(){
 
    todoInput.value = '';
 }
+
+
+// Login settings
+
+const toDoInterface = document.getElementById('to-do-interface');
+const loginInterface = document.getElementById('login-interface');
+const footer = document.getElementById('footer');
+
+const loginPassword = 'letmein';
+
+const loginInput = document.getElementById('login-input');
+const loginInputButton = document.getElementById('login-input-button');
+
+// With Click
+loginInputButton.addEventListener('click', showToDo);
+
+// With enter
+
+loginInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        if (loginInput.value.trim() !== '') {
+            showToDo();
+        }
+    }
+});
+
+
+function showToDo(){
+    if (loginInput.value === loginPassword){
+        toDoInterface.style.display = 'block';
+        footer.style.display = 'block';
+        loginInterface.style.display = 'none';
+    }
+    else {
+        alert('Wrong password. Hint: letmein');
+    }
+}
+
