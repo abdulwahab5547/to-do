@@ -6,8 +6,8 @@ body{
  
 .footer{
    background-color: #030E24;
-   display: grid;
-   align-items: end;
+   margin: 0;
+
 }
 
 .footer p{
@@ -18,15 +18,58 @@ body{
    width: 90%;
    max-width: 1300px;
    margin: auto;
-   height: 94vh;
+   min-height: 92vh;
  }
  
+/* Login interface settings */
+
+#to-do-interface{
+   display: none;
+}
+
+#footer{
+   display: none;
+}
+
+.password-field p{
+   color: white;
+}
+
+.login-interface{
+   border-radius: 8px;
+   background-color: #030E24;
+   border: 1px solid #deb992;
+   margin-top: 80px;
+   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1);
+}
 
 
- 
+#login-interface{
+   height: 50%;
+   width: auto;
+   margin: auto;
+   max-width: 500px;
+}
+
+#login-interface input{
+   padding-left: 5px;
+   padding-right: 5px;
+   border: 1px solid #deb992;
+   background-color: #030F22;
+   border-radius: 5px;
+   width: 100%;
+   box-sizing: border-box;
+   caret-color: white;
+   color: white;
+}
+
+#login-interface .input-button:hover{
+   background-color: #deb992;
+   color: #030F22;
+}
    
  /* To Do List */
- 
+
  
  #show-todo{
     max-width: 400px;
